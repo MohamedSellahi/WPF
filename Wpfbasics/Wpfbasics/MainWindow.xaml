@@ -18,15 +18,15 @@
                   <ColumnDefinition Width="*"/>
                </Grid.ColumnDefinitions>
 
-               <Button Content="Reset" Grid.Column="0" Margin="10 0 5 0"/>
-               <Button Content="Replay" Grid.Column="1" Margin="5 0 5 0"/>
-               <Button Content="Refresh" Grid.Column="2" Margin="5 0 10 0"/>
+               <Button x:Name="ApplyButton" Click="ApplyButton_Click" Content="Applay" Grid.Column="0" Margin="10 0 5 0"/>
+               <Button x:Name="RefreshButton" Content="Refresh" Grid.Column="1" Margin="5 0 5 0"/>
+               <Button x:Name="Reset" Click="Reset_Click" Content="Reset" Grid.Column="2" Margin="5 0 10 0"/>
 
             </Grid>
 
             <TextBlock Text="Pulse properties" FontWeight="Bold" Margin="0 10" />
             <TextBlock Text="Description" FontWeight="Normal" Margin="0 0" />
-            <TextBox Padding="2" MaxLength="100"/>
+            <TextBox x:Name="descriptionText" Padding="2" MaxLength="100"/>
 
             <!-- Status and Revision  -->
             <Grid>
@@ -74,22 +74,22 @@
 
                <!-- Right Group -->
                <StackPanel Grid.Column="0" Margin="0 0 10 0">
-                  <CheckBox Margin="1" Content="Weld"/>
-                  <CheckBox Margin="1" Content="Assembly"/>
-                  <CheckBox Margin="1" Content="Plasma"/>
-                  <CheckBox Margin="1" Content="Laser"/>
-                  <CheckBox Margin="1" Content="Purchase"/>
+                  <CheckBox x:Name="WeldCheckbox" Margin="1" Content="Weld"/>
+                  <CheckBox x:Name="AssemblyCheckbox" Margin="1"     Content="Assembly"/>
+                  <CheckBox x:Name="PlasmaCheckbox" Margin="1" Content="Plasma"/>
+                  <CheckBox x:Name="LaserCheckbox" Margin="1" Content="Laser"/>
+                  <CheckBox x:Name="PuchaseCheckbox" Margin="1" Content="Purchase"/>
                   
                   
                </StackPanel>
 
                <!-- Right Group  -->
                <StackPanel Grid.Column="1">
-                  <CheckBox Margin="1" Content="Lathe"/>
-                  <CheckBox Margin="1" Content="Fold"/>
-                  <CheckBox Margin="1" Content="Drill"/>
-                  <CheckBox Margin="1" Content="Roll"/>
-                  <CheckBox Margin="1" Content="Saw"/>
+                  <CheckBox Margin="1" x:Name="LatheCheckbox" Content="Lathe"/>
+                  <CheckBox Margin="1" x:Name="FoldCheckbox" Content="Fold"/>
+                  <CheckBox Margin="1" x:Name="DrillCheckbox" Content="Drill"/>
+                  <CheckBox Margin="1" x:Name="RollChackbox" Content="Roll"/>
+                  <CheckBox Margin="1" x:Name="SawCheckbox" Content="Saw"/>
 
                </StackPanel>
             </Grid>
