@@ -30,8 +30,38 @@ namespace Wpfbasics {
       this.WeldCheckbox.IsChecked = this.AssemblyCheckbox.IsChecked = this.PlasmaCheckbox.IsChecked
         = this.LaserCheckbox.IsChecked = this.PuchaseCheckbox.IsChecked = this.LaserCheckbox.IsChecked
         = this.LatheCheckbox.IsChecked = this.FoldCheckbox.IsChecked = this.RollChackbox.IsChecked
-        = this.DrillCheckbox.IsChecked = this.SawCheckbox.IsChecked = false; 
+        = this.DrillCheckbox.IsChecked = this.SawCheckbox.IsChecked = false;
+      this.LengthText.Text = string.Empty;
 
+    }
+
+
+    private void Checkbox_Checked(object sender, RoutedEventArgs e) {
+
+      this.LengthText.Text += " " +((CheckBox)sender).Content; // a cast may be needed of Content is of different type
+    }
+
+
+    // unchck box handlers 
+    private void Checkbox_Unchecked(object sender, RoutedEventArgs e) {
+    
+    }
+
+    private void FinishDropDown_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+      if (this.TextNote == null)
+        return;
+      var combo = (ComboBox)sender;
+      var value = (ComboBoxItem)combo.SelectedValue;
+
+      this.TextNote.Text = (string)value.Content;
+    }
+
+    private void Window_Loaded(object sender, RoutedEventArgs e) {
+      FinishDropDown_SelectionChanged(this.FinishDropDown, null);
+    }
+
+    private void SupplyerNameText_TextChanged(object sender, TextChangedEventArgs e) {
+      this.MassText.Text = this.SupplyerNameText.Text;
     }
   }
 }

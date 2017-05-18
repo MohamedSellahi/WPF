@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpfbasics"
         mc:Ignorable="d"
+        Loaded="Window_Loaded"
         Title="WpfBasics" Height="800" Width="400">
    <Border Padding="10">
       <StackPanel>
@@ -74,17 +75,19 @@
 
                <!-- Right Group -->
                <StackPanel Grid.Column="0" Margin="0 0 10 0">
-                  <CheckBox x:Name="WeldCheckbox" Margin="1" Content="Weld"/>
-                  <CheckBox x:Name="AssemblyCheckbox" Margin="1"     Content="Assembly"/>
-                  <CheckBox x:Name="PlasmaCheckbox" Margin="1" Content="Plasma"/>
-                  <CheckBox x:Name="LaserCheckbox" Margin="1" Content="Laser"/>
-                  <CheckBox x:Name="PuchaseCheckbox" Margin="1" Content="Purchase"/>
+                  <CheckBox Checked="Checkbox_Checked" x:Name="WeldCheckbox" Margin="1" Content="Weld"
+                            Unchecked="Checkbox_Unchecked"/>
+                  <CheckBox Unchecked="Checkbox_Unchecked" Checked="Checkbox_Checked" x:Name="AssemblyCheckbox" Margin="1"     Content="Assembly"/>
+                  <CheckBox Unchecked="Checkbox_Unchecked" Checked="Checkbox_Checked" x:Name="PlasmaCheckbox" Margin="1" Content="Plasma"/>
+                  <CheckBox Unchecked="Checkbox_Unchecked" Checked="Checkbox_Checked" x:Name="LaserCheckbox" Margin="1" Content="Laser"/>
+                  <CheckBox Unchecked="Checkbox_Unchecked" Checked="Checkbox_Checked" x:Name="PuchaseCheckbox" Margin="1" Content="Purchase"/>
                   
                   
                </StackPanel>
 
                <!-- Right Group  -->
                <StackPanel Grid.Column="1">
+                  
                   <CheckBox Margin="1" x:Name="LatheCheckbox" Content="Lathe"/>
                   <CheckBox Margin="1" x:Name="FoldCheckbox" Content="Fold"/>
                   <CheckBox Margin="1" x:Name="DrillCheckbox" Content="Drill"/>
@@ -96,15 +99,15 @@
             
             <!-- Length and mass  -->
             <TextBlock Text="Length"/>
-            <TextBox Padding="2" />
+            <TextBox x:Name="LengthText" Padding="2" />
             <!-- mass -->
             <TextBlock Text="mass" />
-            <TextBox Padding="2" Background="#eee" IsReadOnly="True"/>
+            <TextBox x:Name="MassText" Padding="2" Background="#eee" IsReadOnly="True"/>
 
 
             <!-- Finish -->
             <TextBlock Text="Finish" FontWeight="Normal" Margin="0 0" />
-            <ComboBox SelectedIndex="0" Padding="2">
+            <ComboBox x:Name="FinishDropDown" SelectionChanged="FinishDropDown_SelectionChanged" SelectedIndex="0" Padding="2">
                <ComboBoxItem>Painted</ComboBoxItem>
                <ComboBoxItem>Not Painted</ComboBoxItem>
             </ComboBox>
@@ -118,7 +121,7 @@
 
             <!-- Supply Name  -->
             <TextBlock Text="Supply Name" FontWeight="Normal"/>
-            <TextBox Padding="2" />
+            <TextBox x:Name="SupplyerNameText" TextChanged="SupplyerNameText_TextChanged" Padding="2" />
 
             <!-- Supply code  -->
             <TextBlock Text="Supply Code"/>
@@ -128,7 +131,7 @@
             <TextBlock Text="Additional information" FontWeight="Bold" Margin="0 10" />
             <!-- Note -->
             <TextBlock Text="Note" FontWeight="Normal" Margin="0 0" />
-            <TextBox Padding="2" MaxLength="100"/>
+            <TextBox x:Name="TextNote" Padding="2" />
 
 
 
